@@ -1,0 +1,108 @@
+// CLIENTES
+
+GET http://localhost:4400/clientes
+
+###
+
+POST http://localhost:4400/clientes
+Content-Type: application/json
+
+{
+    "nome": "rorasimfsedasdfsda",
+    "rg": "rosxacscaacaaaa"
+}
+
+###
+
+PUT http://localhost:4400/clientes
+Content-Type: application/json
+
+{
+    "id": 4,
+    "nome": "Zeca Pagodinho",
+    "rg": "258258"
+}
+
+###
+
+DELETE http://localhost:4400/clientes
+Content-Type: application/json
+
+{
+    "id": 9
+}
+
+
+// QUADRAS
+
+###
+
+GET http://localhost:4400/quadras
+
+###
+
+POST http://localhost:4400/quadras
+Content-Type: application/json
+
+{
+    "localizacao": "Quadracsd 1",
+    "tipo_de_quadra": "grama sintética"
+}
+
+###
+
+PUT http://localhost:4400/quadras
+Content-Type: application/json
+
+{
+    "id": 1,
+    "localizacao": "Quadra loanda",
+    "tipo_de_quadra": "grama sintética"
+}
+
+###
+
+DELETE http://localhost:4400/quadras
+Content-Type: application/json
+
+{
+    "id": 3
+}
+
+// PARTIDAS
+
+###
+
+GET http://localhost:4400/partidas
+
+###
+
+POST http://localhost:4400/partidas
+Content-Type: application/json
+
+{
+    "data": "2023-05-20T00:00:00.000Z",
+    "quadra_id": 1,
+    "cliente_id": 1
+}
+
+###
+
+PUT http://localhost:4400/partidas
+Content-Type: application/json
+
+{
+    "id": 1,
+    "data": "2021-05-20T00:00:00.000Z",
+    "quadra_id": 1,
+    "cliente_id": 4
+}
+
+###
+
+DELETE http://localhost:4400/partidas
+Content-Type: application/json
+
+{
+    "id": 2
+}

@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id              Int         @id @default(autoincrement())
+  nome            String
+  rg              String      @unique
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+
+  partida Partida[]
+
+  @@map("clientes")
+}
+
+model Quadra {
+  id              Int         @id @default(autoincrement())
+  localizacao     String
+  tipo_de_quadra  String
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+
+  partida Partida[]
+
+  @@map("quadras")
+}
+
+model Partida {
+  id              Int         @id @default(autoincrement())
+  data            DateTime
+  quadra_id       Int
+  cliente_id      Int
+  created_at      DateTime    @default(now())
+  updated_at      DateTime    @updatedAt
+
+  cliente Cliente @relation(fields: [cliente_id], references: [id])
+
+  quadra Quadra @relation(fields: [quadra_id], references: [id])
+
+  @@map("partidas")
+}
